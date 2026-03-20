@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhoompally Kalyan Reddy — AI Generalist & Developer</title>
+  <meta name="description" content="Portfolio of Bhoompally Kalyan Reddy — AI Generalist, Full-Stack Developer, and CS Engineering student pushing the boundaries of technology." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-text">
+        <span class="preloader-letter">K</span>
+        <span class="preloader-letter">A</span>
+        <span class="preloader-letter">L</span>
+        <span class="preloader-letter">Y</span>
+        <span class="preloader-letter">A</span>
+        <span class="preloader-letter">N</span>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill" id="preloaderFill"></div>
+      </div>
+      <div class="preloader-percent" id="preloaderPercent">0%</div>
+    </div>
+  </div>
+
+  <!-- CURSOR TRAIL CANVAS -->
+  <canvas id="cursorTrail"></canvas>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- THREE.JS CANVAS -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- NAVIGATION -->
+  <nav id="mainNav" class="nav-hidden">
+    <div class="nav-logo">
+      <span class="nav-logo-bracket">[</span>
+      <span class="nav-logo-text">KR</span>
+      <span class="nav-logo-bracket">]</span>
+    </div>
+    <div class="nav-links">
+      <a href="#intro" class="nav-link magnetic-btn" data-index="01">Intro</a>
+      <a href="#skills" class="nav-link magnetic-btn" data-index="02">Skills</a>
+      <a href="#vision" class="nav-link magnetic-btn" data-index="03">Vision</a>
+      <a href="#projects" class="nav-link magnetic-btn" data-index="04">Projects</a>
+      <a href="#leadership" class="nav-link magnetic-btn" data-index="05">Leadership</a>
+      <a href="#future" class="nav-link magnetic-btn" data-index="06">Future Goals</a>
+      <a href="#closing" class="nav-link magnetic-btn" data-index="07">Closing</a>
+    </div>
+    <div class="nav-menu-btn magnetic-btn" id="menuToggle">
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="mobile-menu-bg"></div>
+    <div class="mobile-menu-content">
+      <a href="#intro" class="mobile-link">Intro</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#vision" class="mobile-link">Vision</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#leadership" class="mobile-link">Leadership</a>
+      <a href="#future" class="mobile-link">Future Goals</a>
+      <a href="#closing" class="mobile-link">Closing</a>
+    </div>
+  </div>
+
+  <!-- SCROLL INDICATOR -->
+  <div class="scroll-indicator" id="scrollIndicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main id="mainContent" class="content-hidden">
+
+    <!-- ═══════ 01. INTRO ═══════ -->
+    <section id="intro" class="section hero-section">
+      <!-- HERO PROFILE PHOTO -->
+      <div class="hero-profile-container reveal-text">
+        <span class="line-inner">
+          <div class="hero-profile-ring">
+            <img src="/profile.jpg" alt="Bhoompally Kalyan Reddy" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Kalyan+Reddy&background=0D8ABC&color=fff&size=512'"/>
+          </div>
+        </span>
+      </div>
+      <div class="hero-content">
+        <div class="hero-subtitle reveal-text">
+          <span class="line-inner">AI Generalist &amp; Full-Stack Developer</span>
+        </div>
+        <h1 class="hero-title">
+          <div class="title-line reveal-text"><span class="line-inner">Bhoompally</span></div>
+          <div class="title-line reveal-text">
+            <span class="line-inner word-kalyan">
+              Kalyan
+            </span>
+          </div>
+          <div class="title-line reveal-text"><span class="line-inner accent-text">Reddy</span></div>
+        </h1>
+        <p class="hero-description reveal-text">
+          <span class="line-inner">I'm a <span id="typingText" class="typing-cursor"></span></span>
+        </p>
+        <div class="hero-cta reveal-text">
+          <span class="line-inner">
+            <a href="#projects" class="btn-primary magnetic-btn" id="heroExplore">
+              <span class="btn-text">Explore My Work</span>
+              <span class="btn-icon">→</span>
+            </a>
+            <a href="resume.pdf" class="btn-outline magnetic-btn" download>
+              <span class="btn-text">Download Resume</span>
+              <span class="btn-icon"><i class="fas fa-download"></i></span>
+            </a>
+          </span>
+        </div>
+        <div class="hero-socials reveal-text">
+          <span class="line-inner">
+            <a href="https://github.com/kalyan-1845" target="_blank" class="social-icon-link magnetic-btn"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/bhoompally-kalyan-reddy/" target="_blank" class="social-icon-link magnetic-btn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/yourusername" target="_blank" class="social-icon-link magnetic-btn"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/swag_suprem_4" target="_blank" class="social-icon-link magnetic-btn"><i class="fab fa-instagram"></i></a>
+          </span>
+        </div>
+      </div>
+      
+      <!-- HERO ANIME CHARACTER -->
+      <div class="anime-companion anime-hero" id="robotHero" data-category="INTRO">
+        <div class="anime-body-wrap">
+          <div class="anime-hair">
+            <div class="spike s1"></div><div class="spike s2"></div><div class="spike s3"></div><div class="spike s4"></div><div class="spike s5"></div>
+          </div>
+          <div class="anime-head">
+            <div class="anime-eye left"><div class="pupil"></div></div>
+            <div class="anime-eye right"><div class="pupil"></div></div>
+            <div class="anime-mouth"></div>
+          </div>
+          <div class="anime-torso">
+            <div class="jacket-collar"></div>
+            <div class="jacket-zipper"></div>
+            <div class="anime-arm left-arm"><div class="anime-hand">✨</div></div>
+            <div class="anime-arm right-arm"><div class="anime-hand">💻</div></div>
+          </div>
+          <div class="anime-legs"><div class="anime-leg left-leg"></div><div class="anime-leg right-leg"></div></div>
+        </div>
+        <div class="anime-speech" id="heroSpeech">
+          <p class="anime-quote">"You have the right to work, but never to the fruit of work." — Bhagavad Gita</p>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item reveal-text">
+          <span class="line-inner">
+            <span class="stat-number" data-target="3">0</span>+
+            <span class="stat-label">Projects</span>
+          </span>
+        </div>
+        <div class="stat-item reveal-text">
+          <span class="line-inner">
+            <span class="stat-number" data-target="3">0</span>+
+            <span class="stat-label">Certificates</span>
+          </span>
+        </div>
+        <div class="stat-item reveal-text">
+          <span class="line-inner">
+            <span class="stat-number" data-target="5">0</span>+
+            <span class="stat-label">Skills</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee-section">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span>PYTHON ✦ JAVA ✦ AI / ML ✦ WEB DEVELOPMENT ✦ THREE.JS ✦ C PROGRAMMING ✦ JAVASCRIPT ✦ </span>
+          <span>PYTHON ✦ JAVA ✦ AI / ML ✦ WEB DEVELOPMENT ✦ THREE.JS ✦ C PROGRAMMING ✦ JAVASCRIPT ✦ </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ 02. SKILLS ═══════ -->
+    <section id="skills" class="section about-section">
+      <div class="section-header">
+        <span class="section-label reveal-text"><span class="line-inner">02 — Skills</span></span>
+        <h2 class="section-title reveal-text"><span class="line-inner">My Technical Arsenal</span></h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p class="about-paragraph reveal-text">
+            <span class="line-inner">I am a second-year Computer Science Engineering student at ACE Engineering College with a strong interest in AI, software development, and mobile app prototyping. I have hands-on experience developing projects like Aurora AI Pro, a multilingual voice/text translator built using Python, SpeechRecognition, and gTTS.</span>
+          </p>
+          <p class="about-paragraph reveal-text">
+            <span class="line-inner">My technical skills include Python, Java, and C, and I enjoy experimenting with AI/ML tools to solve real-world challenges. I actively participate in technical workshops, hackathons, and college-level coding events to strengthen my knowledge and build innovative software solutions.</span>
+          </p>
+        </div>
+        <div class="about-right">
+          <div class="skills-matrix">
+            <div class="skill-group reveal-text">
+              <span class="line-inner">
+                <h4 class="skill-group-title">Programming Languages</h4>
+                <div class="skill-bars">
+                  <div class="skill-bar" data-skill="Python" data-level="90"></div>
+                  <div class="skill-bar" data-skill="C" data-level="87"></div>
+                  <div class="skill-bar" data-skill="Java" data-level="81"></div>
+                </div>
+              </span>
+            </div>
+            <div class="skill-group reveal-text">
+              <span class="line-inner">
+                <h4 class="skill-group-title">Web & Tools</h4>
+                <div class="skill-bars">
+                  <div class="skill-bar" data-skill="HTML / CSS" data-level="80"></div>
+                  <div class="skill-bar" data-skill="JavaScript" data-level="80"></div>
+                  <div class="skill-bar" data-skill="AI / ML" data-level="75"></div>
+                </div>
+              </span>
+            </div>
+          </div>
+          
+          <!-- SKILLS ANIME CHARACTER -->
+          <div class="anime-companion anime-about" id="robotAbout" data-category="SKILLS">
+            <div class="anime-body-wrap">
+              <div class="anime-hair"><div class="spike s1"></div><div class="spike s2"></div><div class="spike s3"></div><div class="spike s4"></div><div class="spike s5"></div></div>
+              <div class="anime-head">
+                <div class="anime-eye left"><div class="pupil"></div></div>
+                <div class="anime-eye right"><div class="pupil"></div></div>
+                <div class="anime-mouth"></div>
+              </div>
+              <div class="anime-torso">
+                <div class="jacket-collar"></div>
+                <div class="jacket-zipper"></div>
+                <div class="anime-arm left-arm"><div class="anime-hand">🧠</div></div>
+                <div class="anime-arm right-arm"><div class="anime-hand">💡</div></div>
+              </div>
+              <div class="anime-legs"><div class="anime-leg left-leg"></div><div class="anime-leg right-leg"></div></div>
+            </div>
+            <div class="anime-speech" id="aboutSpeech">
+              <p class="anime-quote">"The wise see knowledge and action as one; they see truly." — Bhagavad Gita</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ 03. VISION ═══════ -->
+    <section id="vision" class="section education-section">
+      <div class="section-header">
+        <span class="section-label reveal-text"><span class="line-inner">03 — Vision</span></span>
+        <h2 class="section-title reveal-text"><span class="line-inner">My Path & Vision</span></h2>
+      </div>
+      <div class="edu-layout">
+        <div class="timeline">
+          <div class="timeline-item reveal-text"><span class="line-inner">
+            <div class="timeline-card">
+              <div class="timeline-badge"><i class="fas fa-graduation-cap"></i></div>
+              <div class="timeline-date">2020 — 2024 (Expected)</div>
+              <h3 class="timeline-title">ACE Engineering College</h3>
+              <p class="timeline-subtitle">B.Tech in Computer Science Engineering</p>
+              <div class="timeline-details">
+                <span><i class="fas fa-star"></i> CGPA: 8.5/10</span>
+                <span><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</span>
+              </div>
+            </div>
+          </span></div>
+          <div class="timeline-item reveal-text"><span class="line-inner">
+            <div class="timeline-card">
+              <div class="timeline-badge"><i class="fas fa-school"></i></div>
+              <div class="timeline-date">2022 — 2024</div>
+              <h3 class="timeline-title">Vijwala Junior College</h3>
+              <p class="timeline-subtitle">Intermediate (MPC)</p>
+              <div class="timeline-details">
+                <span><i class="fas fa-star"></i> Percentage: 91.3%</span>
+                <span><i class="fas fa-map-marker-alt"></i> Siddipet, Telangana</span>
+              </div>
+            </div>
+          </span></div>
+          <div class="timeline-item reveal-text"><span class="line-inner">
+            <div class="timeline-card">
+              <div class="timeline-badge"><i class="fas fa-book"></i></div>
+              <div class="timeline-date">2021 — 2022</div>
+              <h3 class="timeline-title">Vidya Nikethan High School</h3>
+              <p class="timeline-subtitle">SSC</p>
+              <div class="timeline-details">
+                <span><i class="fas fa-star"></i> GPA: 7.5/10</span>
+                <span><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</span>
+              </div>
+            </div>
+          </span></div>
+        </div>
+        
+        <!-- VISION ANIME CHARACTER -->
+        <div class="anime-companion anime-edu" id="robotEdu" data-category="VISION">
+          <div class="anime-body-wrap">
+            <div class="anime-hair"><div class="spike s1"></div><div class="spike s2"></div><div class="spike s3"></div><div class="spike s4"></div><div class="spike s5"></div></div>
+            <div class="anime-head">
+              <div class="anime-eye left"><div class="pupil"></div></div>
+              <div class="anime-eye right"><div class="pupil"></div></div>
+              <div class="anime-mouth"></div>
+            </div>
+            <div class="anime-torso">
+              <div class="jacket-collar"></div>
+              <div class="jacket-zipper"></div>
+              <div class="anime-arm left-arm"><div class="anime-hand">🎓</div></div>
+              <div class="anime-arm right-arm"><div class="anime-hand">🚀</div></div>
+            </div>
+            <div class="anime-legs"><div class="anime-leg left-leg"></div><div class="anime-leg right-leg"></div></div>
+          </div>
+          <div class="anime-speech" id="eduSpeech">
+            <p class="anime-quote">"Perform your duty equipoised, abandoning all attachment to success or failure." — Bhagavad Gita</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ 04. PROJECTS ═══════ -->
+    <section id="projects" class="section projects-section">
+      <div class="section-header">
+        <span class="section-label reveal-text"><span class="line-inner">04 — Selected Work</span></span>
+        <h2 class="section-title reveal-text"><span class="line-inner">Architecting Solutions</span></h2>
+      </div>
+      
+      <!-- PROJECTS ANIME CHARACTER -->
+      <div class="anime-companion anime-projects" id="robotProjects" style="margin-bottom: var(--space-xl);" data-category="PROJECTS">
+        <div class="anime-body-wrap">
+          <div class="anime-hair"><div class="spike s1"></div><div class="spike s2"></div><div class="spike s3"></div><div class="spike s4"></div><div class="spike s5"></div></div>
+          <div class="anime-head">
+            <div class="anime-eye left"><div class="pupil"></div></div>
+            <div class="anime-eye right"><div class="pupil"></div></div>
+            <div class="anime-mouth"></div>
+          </div>
+          <div class="anime-torso">
+            <div class="jacket-collar"></div>
+            <div class="jacket-zipper"></div>
+            <div class="anime-arm left-arm"><div class="anime-hand">🔥</div></div>
+            <div class="anime-arm right-arm"><div class="anime-hand">⚡</div></div>
+          </div>
+          <div class="anime-legs"><div class="anime-leg left-leg"></div><div class="anime-leg right-leg"></div></div>
+        </div>
+        <div class="anime-speech" id="expSpeech">
+          <p class="anime-quote">"Strive constantly to serve the welfare of the world; by devotion to selfless work one attains the supreme goal." — Bhagavad Gita</p>
+        </div>
+      </div>
+      
+      <div class="projects-grid" id="projectsGrid">
+        <!-- PROJECT 1: Aurora AI -->
+        <article class="project-card visible" id="project-1">
+          <div class="project-card-inner">
+            <div class="project-visual">
+              <div class="project-placeholder">
+                <div class="placeholder-orb" style="background: radial-gradient(circle, rgba(162, 155, 254, 0.6), transparent); --hue: 280;"></div>
+                <span class="placeholder-text" style="color: var(--accent-1);">Aurora AI Pro</span>
+              </div>
+              <div class="project-overlay">
+                <a href="https://aurora-ai-pro.netlify.app/" target="_blank" class="project-view magnetic-btn">View Live →</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">AI / Machine Learning</span>
+              <h3 class="project-title glitch-target">Aurora AI Pro</h3>
+              <p class="project-desc">A multilingual voice/text translator with AI capabilities, supporting real-time translation between multiple languages.</p>
+              <div class="project-tags"><span>Python</span><span>SpeechRecognition</span><span>gTTS</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: Deccan Fresh -->
+        <article class="project-card visible" id="project-2">
+          <div class="project-card-inner">
+            <div class="project-visual">
+              <div class="project-placeholder">
+                <div class="placeholder-orb" style="background: radial-gradient(circle, rgba(162, 155, 254, 0.4), transparent); --hue: 240;"></div>
+                <span class="placeholder-text" style="color: var(--accent-2);">Deccan Fresh</span>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-view magnetic-btn">View Code →</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Web Development</span>
+              <h3 class="project-title glitch-target">Deccan Fresh Ecommerce</h3>
+              <p class="project-desc">A responsive e-commerce website featuring active product listings, dynamic cart functionality, and complete user authentication.</p>
+              <div class="project-tags"><span>React</span><span>Node.js</span><span>Database</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 3: Scanify v2 -->
+        <article class="project-card visible" id="project-3" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto; width: 100%;">
+          <div class="project-card-inner">
+            <div class="project-visual" style="height: 180px;">
+              <div class="project-placeholder">
+                <div class="placeholder-orb" style="background: radial-gradient(circle, rgba(0, 206, 201, 0.4), transparent); --hue: 180;"></div>
+                <span class="placeholder-text" style="color: var(--accent-3);">Scanify v2</span>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-view magnetic-btn">View Live →</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Utility Tool</span>
+              <h3 class="project-title glitch-target">Scanify v2 QR Generator</h3>
+              <p class="project-desc">A highly customizable QR code generator offering limitless design options, vibrant styling features, and real-time visual previews for the user.</p>
+              <div class="project-tags"><span>Javascript</span><span>CSS3</span><span>API</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════ 05. LEADERSHIP & EXPERIENCE ═══════ -->
+    <section id="leadership" class="section experience-section">
+      <div class="section-header">
+        <span class="section-label reveal-text"><span class="line-inner">05 — Leadership & Action</span></span>
+        <h2 class="section-title reveal-text"><span class="line-inner">Impact & Experience</span></h2>
+      </div>
+      <div class="exp-layout">
+        <div class="experience-list">
+          
+          <div class="exp-card reveal-text"><span class="line-inner">
+            <div class="exp-card-inner">
+              <div class="exp-accent-bar"></div>
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-title">Generative AI Workshop</h3>
+                  <div class="exp-company">OutSkill, Vaibhav Sisnity</div>
+                </div>
+                <span class="exp-date">Feb 2026</span>
+              </div>
+              <p class="exp-desc">Attended a 2-day intensive workshop exploring generative AI tools and techniques. Participated in hands-on sessions to create AI-generated content and deepen my understanding of cutting-edge AI model applications.</p>
+              <div class="exp-tags"><span>Generative AI</span><span>Prompt Engineering</span></div>
+            </div>
+          </span></div>
+
+          <div class="exp-card reveal-text"><span class="line-inner">
+            <div class="exp-card-inner">
+              <div class="exp-accent-bar"></div>
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-title">AWS Cloud Bootcamp</h3>
+                  <div class="exp-company">ACE Engineering College</div>
+                </div>
+                <span class="exp-date">Cloud Infrastructure</span>
+              </div>
+              <p class="exp-desc">Completed a 2-day bootcamp focused on cloud servers. Developed expertise in creating AWS infrastructure and successfully deployed a responsive web application, receiving recognition from faculty members.</p>
+              <div class="exp-tags"><span>AWS</span><span>Deployment</span><span>Servers</span></div>
+            </div>
+          </span></div>
+
+          <div class="exp-card reveal-text"><span class="line-inner">
+            <div class="exp-card-inner">
+              <div class="exp-accent-bar"></div>
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-title">Python Programming Workshop</h3>
+                  <div class="exp-company">ACE Engineering College</div>
+                </div>
+                <span class="exp-date">Intensive Training</span>
+              </div>
+              <p class="exp-desc">Participated in a 3-day immersive workshop mastering core Python programming and standard libraries. Collaborated on a team project to design and develop a complete software application from scratch.</p>
+              <div class="exp-tags"><span>Python</span><span>Team Collaboration</span></div>
+            </div>
+          </span></div>
+
+        </div>
+        
+        <!-- LEADERSHIP ANIME CHARACTER -->
+        <div class="anime-companion anime-exp" id="robotExpLeadership" data-category="LEADERSHIP & EXP">
+          <div class="anime-body-wrap">
+            <div class="anime-hair"><div class="spike s1"></div><div class="spike s2"></div><div class="spike s3"></div><div class="spike s4"></div><div class="spike s5"></div></div>
+            <div class="anime-head">
+              <div class="anime-eye left"><div class="pupil"></div></div>
+              <div class="anime-eye right"><div class="pupil"></div></div>
+              <div class="anime-mouth"></div>
+            </div>
+            <div class="anime-torso">
+              <div class="jacket-collar"></div>
+              <div class="jacket-zipper"></div>
+              <div class="anime-arm left-arm"><div class="anime-hand">🦾</div></div>
+              <div class="anime-arm right-arm"><div class="anime-hand">🌐</div></div>
+            </div>
+            <div class="anime-legs"><div class="anime-leg left-leg"></div><div class="anime-leg right-leg"></div></div>
+          </div>
+          <div class="anime-speech" id="projectsSpeech">
+            <p class="anime-quote">"Whatever action a great leader performs, common people follow. And whatever standards they set, all the world pursues." — Bhagavad Gita</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ 06. FUTURE GOALS & CERTS ═══════ -->
+    <section id="future" class="section certificates-section">
+      <div class="section-header">
+        <span class="section-label reveal-text"><span class="line-inner">06 — Certifications & Future</span></span>
+        <h2 class="section-title reveal-text"><span class="line-inner">Redefining Excellence</span></h2>
+      </div>
+      
+      <!-- FUTURE GOALS ANIME CHARACTER -->
+      <div class="anime-companion anime-certs" id="robotCerts" data-category="CERTS & FUTURE">
+        <div class="anime-body-wrap">
+          <div class="anime-hair"><div class="spike s1"></div><div class="spike s2"></div><div class="spike s3"></div><div class="spike s4"></div><div class="spike s5"></div></div>
+          <div class="anime-head">
+            <div class="anime-eye left"><div class="pupil"></div></div>
+            <div class="anime-eye right"><div class="pupil"></div></div>
+            <div class="anime-mouth"></div>
+          </div>
+          <div class="anime-torso">
+            <div class="jacket-collar"></div>
+            <div class="jacket-zipper"></div>
+            <div class="anime-arm left-arm"><div class="anime-hand">🏆</div></div>
+            <div class="anime-arm right-arm"><div class="anime-hand">🚀</div></div>
+          </div>
+          <div class="anime-legs"><div class="anime-leg left-leg"></div><div class="anime-leg right-leg"></div></div>
+        </div>
+        <div class="anime-speech" id="certsSpeech">
+          <p class="anime-quote">"The mind is restless and difficult to restrain, but it is subdued by constant practice." — Bhagavad Gita</p>
+        </div>
+      </div>
+      
+      <div class="cert-grid">
+        <div class="cert-card reveal-text"><span class="line-inner">
+          <div class="cert-card-inner">
+            <div class="cert-badge">Verify</div>
+            <div class="cert-icon"><i class="fas fa-brain"></i></div>
+            <h3 class="cert-title">Generative Ai Workshop</h3>
+            <p class="cert-issuer">OutSkill</p>
+            <span class="cert-date">Feb 8, 2026</span>
+          </div>
+        </span></div>
+
+        <div class="cert-card reveal-text"><span class="line-inner">
+          <div class="cert-card-inner">
+            <div class="cert-badge">Verify</div>
+            <div class="cert-icon"><i class="fab fa-python"></i></div>
+            <h3 class="cert-title">Basics Python Workshop</h3>
+            <p class="cert-issuer">FOSSEE, IT Bombay</p>
+            <span class="cert-date">May 9, 2025</span>
+          </div>
+        </span></div>
+
+        <div class="cert-card reveal-text"><span class="line-inner">
+          <div class="cert-card-inner">
+            <div class="cert-badge">Verify</div>
+            <div class="cert-icon"><i class="fas fa-microchip"></i></div>
+            <h3 class="cert-title">CEREBRO Gemini Ai Challenge</h3>
+            <p class="cert-issuer">Ace Engineering College</p>
+            <span class="cert-date">Sept 9, 2025</span>
+          </div>
+        </span></div>
+      </div>
+    </section>
+
+    <!-- ═══════ 07. CLOSING ═══════ -->
+    <section id="closing" class="section contact-section">
+      <div class="contact-content">
+        <span class="section-label reveal-text"><span class="line-inner">07 — Closing</span></span>
+        <h2 class="contact-title reveal-text"><span class="line-inner">Let's Create</span></h2>
+        <h2 class="contact-title reveal-text"><span class="line-inner accent-text">Something Epic</span></h2>
+        <p class="contact-desc reveal-text">
+          <span class="line-inner">Got a vision to build? Let's collaborate and bring the future forward together.</span>
+        </p>
+        
+        <!-- CLOSING ANIME CHARACTER -->
+        <div class="anime-companion anime-contact" id="robotContact" data-category="LET'S CONNECT!">
+          <div class="anime-body-wrap">
+            <div class="anime-hair"><div class="spike s1"></div><div class="spike s2"></div><div class="spike s3"></div><div class="spike s4"></div><div class="spike s5"></div></div>
+            <div class="anime-head">
+              <div class="anime-eye left"><div class="pupil"></div></div>
+              <div class="anime-eye right"><div class="pupil"></div></div>
+              <div class="anime-mouth smile"></div>
+            </div>
+            <div class="anime-torso">
+              <div class="jacket-collar"></div>
+              <div class="jacket-zipper"></div>
+              <div class="anime-arm left-arm wave-arm"><div class="anime-hand">👋</div></div>
+              <div class="anime-arm right-arm"><div class="anime-hand">👾</div></div>
+            </div>
+            <div class="anime-legs"><div class="anime-leg left-leg"></div><div class="anime-leg right-leg"></div></div>
+          </div>
+          <div class="anime-speech" id="contactSpeech">
+            <p class="anime-quote">"Let not the fruits of action be your motive, nor let your attachment be to inaction." — Bhagavad Gita</p>
+          </div>
+        </div>
+        
+        <div class="contact-links reveal-text">
+          <span class="line-inner">
+            <a href="mailto:prsnlkalyan@gmail.com" class="contact-link magnetic-btn">
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">prsnlkalyan@gmail.com</span>
+            </a>
+          </span>
+        </div>
+        <div class="contact-social reveal-text">
+          <span class="line-inner">
+            <a href="https://www.linkedin.com/in/bhoompally-kalyan-reddy/" target="_blank" class="social-link magnetic-btn">LinkedIn</a>
+            <a href="https://github.com/kalyan-1845" target="_blank" class="social-link magnetic-btn">GitHub</a>
+            <a href="https://instagram.com/swag_suprem_4" target="_blank" class="social-link magnetic-btn">Instagram</a>
+            <a href="https://twitter.com/yourusername" target="_blank" class="social-link magnetic-btn">Twitter</a>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <span class="footer-copy">© 2026 Bhoompally Kalyan Reddy — CEO & Founder. All Rights Reserved.</span>
+        <span class="footer-credit">Architecting Intelligence ✦</span>
+      </div>
+    </footer>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
